@@ -1,5 +1,5 @@
-import {View, Text, StyleSheet, TouchableOpacity } from "react-native"
-
+import {View, Text, StyleSheet, TouchableOpacity, Image } from "react-native"
+import Item from "./Item"
 export default function Section() {
 
     return(
@@ -9,6 +9,31 @@ export default function Section() {
             <Text style={styles.textInfo}>
                 Aprenda a descartar seus itens de forma ecológica!
             </Text>
+
+            <View style={ {
+                borderBottomColor: "black",
+                borderBottomWidth: StyleSheet.hairlineWidth,
+                width: 550,
+                margin: "auto",
+                marginBottom: 35,
+            }}>
+
+            </View>
+
+            <Item item={"texto aleatorio"} image={"./assets/icon.png"}/>
+
+            <View style={styles.itensContainer}>
+
+                <View style={styles.imageContainer}> 
+                    <Image
+                        source={require("./assets/pilhas-img.png")}
+                        style={styles.imagemItem}
+                    />
+                </View>
+                <Text style={styles.itemText}>
+                    Pilhas devem ser descartadas sempre em locais indicados.
+                </Text>
+            </View>
 
             <TouchableOpacity style={styles.button}>
                 <text style={styles.buttonText}>Ver dicas</text>
@@ -51,6 +76,36 @@ const styles = StyleSheet.create({
         fontSize: 18,
         color: "#fff",
         textAlign: "center",
-    }
+    },
+
+    itensContainer:{
+        flexDirection: "row",
+        justifyContent: "space-around",
+        alignItems: "center"
+    },
+
+    imageContainer:{
+        backgroundColor: "#fff",
+        borderRadius: "50%",
+        shadowColor: "#171717",
+        shadowOffset: {width: -2,  height: 4},
+        shadowOpacity: 0.2,
+        shadowRadius: 3,
+
+  
+    },
+
+    imagemItem:{
+        width: 140,
+        height: 140,
+        
+    },
+
+    itemText:{
+        textAlignVertical: "center",
+        fontSize: 18,
+        marginLeft: -70
+    },
+
 
 })

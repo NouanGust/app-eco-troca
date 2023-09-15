@@ -1,5 +1,4 @@
 import React from "react"
-import MapView from "react-native-maps"
 import {View, Text, TouchableOpacity, StyleSheet, Image} from "react-native"
 
 export default function Mapa() {
@@ -16,10 +15,6 @@ export default function Mapa() {
                 source={require("./assets/mapa-img-1.jpg")}
                 style={styles.image}
             />
-
-            <MapView style={styles.map}> 
-
-            </MapView>
 
             <TouchableOpacity style={styles.button}>
                 <Text style={styles.buttonText}>
