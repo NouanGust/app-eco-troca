@@ -1,6 +1,41 @@
-import {View, StyleSheet, TouchableOpacity, Text} from "react-native"
+import React, {useState} from 'react'
+import {View, StyleSheet, TouchableOpacity, Text, Pressable, Modal, Alert} from "react-native"
+
+
 
 export default function SectionTroca() {
+
+    const Modal = () => {
+        const [modalVisible, setModalVisible] = useState(false)
+    
+        return (
+    
+            <View>
+                <Modal
+                    animationType="slide"
+                    trasparent={true}
+                    visible={modalVisible}
+                    onRequestClose= { () => {setModalVisible(!modalVisible)}}
+                >
+    
+                    <View>
+                        <Text>
+                            Olá
+                        </Text>
+    
+                        <Pressable onPress={() => {setModalVisible(!modalVisible)}} >
+                            <Text>Fechar</Text>
+                        </Pressable>
+                    </View>
+    
+    
+    
+                </Modal>
+    
+                
+            </View>
+        )
+    }
 
 
     return(
@@ -15,7 +50,7 @@ export default function SectionTroca() {
                 Aqui você pode encontrar pessoas ou empresas que procuram um produto que você não usa mais.
             </Text>
 
-            <TouchableOpacity style={styles.button}>
+            <TouchableOpacity style={styles.button} onPress={() => {setModalVisible(!modalVisible)}} >
                 <Text style={styles.buttonText}>
                     Faça login
                 </Text>
