@@ -1,23 +1,60 @@
-import { View, StyleSheet, Image, Text} from "react-native"
+import React, {useState} from 'react'
+import { View, StyleSheet, Image, Text, TouchableOpacity} from "react-native"
 
-export default function Item( item, image ) {
+const Item = props => {
+
+    const [texto, setTexto] = useState("")
     return(
-
-
         <View style={styles.itensContainer}>
 
-        <View style={styles.imageContainer}> 
-            <Image
-                source={require({image})}
-                style={styles.imagemItem}
-            />
+            <View style={styles.imageContainer}>
+
+                <TouchableOpacity onPress={ () => setTexto(props.texto) }>
+                    <Image
+                        source={props.src}
+                        style={styles.imagemItem}
+
+                    />
+                </TouchableOpacity>
+
+
+
+            </View>
+
+
+
+            <Text style={styles.itemText}>
+                {props.name}
+            </Text>
+
+
+            <View>
+                <Text>
+                    {texto}
+                </Text>
+
+            </View>
         </View>
-        <Text style={styles.itemText}>
-            {item}
-        </Text>
-    </View>
     )
 }
+
+const produtos = [
+    {id: 1, name: "Oléo", src: "oleo.png", texto: "A forma correta de descartar esse tipo de material é..."},
+    {id: 2, name: "Garrafa Pet", src: "pet.png", texto: "A forma correta de descartar esse tipo de material é..."},
+    {id: 3, name: "Pilhas", src: "pilhas.png", texto: "A forma correta de descartar esse tipo de material é..."}
+]
+
+const Itens = () => {
+    return(
+        <View>
+            <Item name={produtos[0].name} src={require(`./assets/${produtos[0].src}`)} texto={produtos[0].texto} />
+            <Item name={produtos[1].name} src={require(`./assets/${produtos[1].src}`)} texto={produtos[1].texto} />
+            <Item name={produtos[2].name} src={require(`./assets/${produtos[2].src}`)} texto={produtos[2].texto} />
+        </View>
+    )
+}
+
+export default Itens
 
 const styles = StyleSheet.create({
 
@@ -29,6 +66,7 @@ const styles = StyleSheet.create({
 
     imageContainer:{
         backgroundColor: "#fff",
+        margin: 10,
         borderRadius: "50%",
         shadowColor: "#171717",
         shadowOffset: {width: -2,  height: 4},

@@ -1,5 +1,5 @@
 import {View, Text, StyleSheet, TouchableOpacity, Image } from "react-native"
-import Item from "./Item"
+import Itens from "./Item"
 export default function Section() {
 
     return(
@@ -20,20 +20,8 @@ export default function Section() {
 
             </View>
 
-            <Item item={"texto aleatorio"} image={"./assets/icon.png"}/>
+            <Itens></Itens>
 
-            <View style={styles.itensContainer}>
-
-                <View style={styles.imageContainer}> 
-                    <Image
-                        source={require("./assets/pilhas-img.png")}
-                        style={styles.imagemItem}
-                    />
-                </View>
-                <Text style={styles.itemText}>
-                    Pilhas devem ser descartadas sempre em locais indicados.
-                </Text>
-            </View>
 
             <TouchableOpacity style={styles.button}>
                 <text style={styles.buttonText}>Ver dicas</text>
