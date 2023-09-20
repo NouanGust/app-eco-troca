@@ -85,6 +85,5 @@ const styles = StyleSheet.create({
     itemText:{
         textAlignVertical: "center",
         fontSize: 18,
-        marginLeft: -70
     },
 })

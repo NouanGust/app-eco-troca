@@ -13,7 +13,7 @@ export default function Section() {
             <View style={ {
                 borderBottomColor: "black",
                 borderBottomWidth: StyleSheet.hairlineWidth,
-                width: 550,
+                width: 250,
                 margin: "auto",
                 marginBottom: 35,
             }}>
@@ -92,7 +92,6 @@ const styles = StyleSheet.create({
     itemText:{
         textAlignVertical: "center",
         fontSize: 18,
-        marginLeft: -70
     },
 
 

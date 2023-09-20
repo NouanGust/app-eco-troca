@@ -1,46 +1,58 @@
 import React, {useState} from 'react'
-import {View, StyleSheet, TouchableOpacity, Text, Pressable, Modal, Alert} from "react-native"
-
-
+import {View, StyleSheet, TouchableOpacity, Text, Pressable, Modal, TextInput} from "react-native"
 
 export default function SectionTroca() {
-
-    const Modal = () => {
-        const [modalVisible, setModalVisible] = useState(false)
-    
-        return (
-    
-            <View>
-                <Modal
-                    animationType="slide"
-                    trasparent={true}
-                    visible={modalVisible}
-                    onRequestClose= { () => {setModalVisible(!modalVisible)}}
-                >
-    
-                    <View>
-                        <Text>
-                            Olá
-                        </Text>
-    
-                        <Pressable onPress={() => {setModalVisible(!modalVisible)}} >
-                            <Text>Fechar</Text>
-                        </Pressable>
-                    </View>
-    
-    
-    
-                </Modal>
-    
-                
-            </View>
-        )
-    }
-
+    const [modalVisible, setModalVisible] = useState(false)
 
     return(
 
+
+
         <View style={styles.sectionContainer}>
+
+
+            <Modal
+                animationType="slide"
+                trasparent={true}
+                visible={modalVisible}
+                onRequestClose={ () => {setModalVisible(!modalVisible)} }
+            >
+                <View style={styles.modal}>
+
+                    <Text style={styles.modalText}>
+                        Faça login para entrar na área de troca!
+                    </Text>
+
+                    <View>
+
+                        <TextInput
+                            style={styles.userInput}
+                            placeholder='Nome de usuário ou email'
+                        >
+                        </TextInput>
+                        <TextInput
+                            style={styles.userInput}
+                            placeholder='Senha'
+                            secureTextEntry={true}
+                        >
+                        </TextInput>
+                        <Pressable style={styles.loginBtn}>
+                            <Text style={styles.loginBtnText}>
+                                Login
+                            </Text>
+                        </Pressable>
+                    </View>
+
+
+                    <Pressable onPress={ () => {setModalVisible(!modalVisible)} } style={styles.closeModal} >
+                        <Text style={styles.closeModalText}>
+                            Fechar caixa
+                        </Text>
+                    </Pressable>
+                </View>
+
+            </Modal>
+
             
             <Text style={styles.textInfo}>
                 Conheça também nosso sistema de trocas!
@@ -50,7 +62,7 @@ export default function SectionTroca() {
                 Aqui você pode encontrar pessoas ou empresas que procuram um produto que você não usa mais.
             </Text>
 
-            <TouchableOpacity style={styles.button} onPress={() => {setModalVisible(!modalVisible)}} >
+            <TouchableOpacity style={styles.button} onPress={() => {setModalVisible(!modalVisible)}}>
                 <Text style={styles.buttonText}>
                     Faça login
                 </Text>
@@ -97,6 +109,66 @@ const styles = StyleSheet.create({
     textApoio:{
         fontSize: 14,
         textAlign: "center",
+    },
+
+    modal:{
+        borderRadius: 20,
+        padding: 15,
+        alignItems: "center",
+        margin: 20,
+        
+
+    },
+
+    modalText:{
+        fontSize: 21,
+        textAlign: 'center',
+
+    },
+
+    closeModal:{
+        padding: 10,
+        backgroundColor: "red",
+        borderRadius: 10,
+        margin: 30,
+    },
+
+    closeModalText:{
+        color: "#fff",
+        fontWeight: "bold",
+    },
+
+    userInput:{
+        height: 40,
+        width: 280,
+        margin: 12,
+        borderWidth: 1,
+        padding: 15,
+        borderRadius: 10,
+        shadowColor: "#000",
+        shadowOffset: {
+            width: 0,
+            height: 2,
+        },
+        shadowOpacity: 0.25,
+        shadowRadius: 4,
+        elevation: 5,
+    },
+
+    loginBtn:{
+        backgroundColor: "#20a738",
+        padding: 15,
+        borderRadius: 20,
+        width: 260,
+        margin: "auto"
+
+    },
+
+    loginBtnText:{
+        textAlign: "center",
+        fontSize: 14,
+        color: "#fff",
+        fontWeight: 'bold',
     }
 
 })
